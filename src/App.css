@@ -1,2 +1,6 @@
 @import '~antd/dist/antd.css';
 
+.leftWrap {
+	width: 180px;
+	height: 100vh;
+}
