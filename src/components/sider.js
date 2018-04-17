@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Menu, Icon, Button } from 'antd';
 import MenuItem from 'antd/lib/menu/MenuItem';
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 @connect(
     state => ({
-        menus: state.menus
+        menus: state.menus,
+        openKey: state.openKey,
+        selectKey: state.selectKey
     }),
     null
 )
+@withRouter
 class Silde extends React.Component {
     constructor(props) {
         super(props)
@@ -30,14 +33,14 @@ class Silde extends React.Component {
         return arr.map((sub, index) => {
             if (typeof sub.child !== undefined && sub.child.length > 0) {
                 return (
-                    <Menu.SubMenu key={sub.id} title={sub.title}>
+                    <Menu.SubMenu key={sub.path} title={sub.title}>
                         {this.renderSubMenus(sub.child)}
                     </Menu.SubMenu>
                 )
             } else {
                 return (
-                    <MenuItem key={sub.id}>
-                        <Link to={sub.path}>{sub.title}</Link>
+                    <MenuItem key={sub.path} >
+                        {sub.title}
                     </MenuItem>
                 )
             }
@@ -53,11 +56,14 @@ class Silde extends React.Component {
                     <Menu
                         mode="inline"
                         inlineCollapsed={this.state.collapsed}
-                        defaultSelectedKeys={['20']}
-                        defaultOpenKeys={['sb']}
+                        openKeys={this.props.openKey}
+                        selectedKeys={this.props.selectKey}
+                        onSelect={item => {
+                            this.props.history.push(item.key)
+                        }}
                     >
                         {this.props.menus.map((menu, index) => (
-                            <Menu.SubMenu key={index === 0 ? 'sb' : menu.id} title={<span>{menu.title}</span>}>
+                            <Menu.SubMenu key={menu.path} title={<span>{menu.title}</span>}>
                                 {this.renderSubMenus(menu.child)}
                             </Menu.SubMenu>
                         ))}

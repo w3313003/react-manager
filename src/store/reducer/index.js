@@ -1,6 +1,11 @@
 import types from '../action/type';
+
+let pathArr = window.location.hash.replace(/#/,'').split(/\b(?=\/)/g),
+    selectKey = pathArr.length === 1 ? pathArr : pathArr.splice(pathArr.length - 1, 1);
 const _initState = {
-    menus: []
+    menus: [],
+    openKey: pathArr,
+    selectKey
 };
 
 export default (state = _initState, action) => {
