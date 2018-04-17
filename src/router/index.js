@@ -1,12 +1,14 @@
 import React from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import action from '.././store/action';
-import { Menu, Icon, Button } from 'antd';
-
 import menus from '../util/index';
-import MenuItem from 'antd/lib/menu/MenuItem';
+import Silde from '../components/sider';
+import Header from '../components/header';
 
+// 路由页面
+import Main from '../pages/main';
+import Unkown from '../pages/unkown';
 
 const mapStateToProps = state => ({
     menus: state.menus
@@ -19,6 +21,7 @@ const mapDispatchToProps = dispatch => {
         }
     }
 }
+
 @connect(
     mapStateToProps,
     mapDispatchToProps
@@ -34,7 +37,7 @@ export default class extends React.Component {
     componentWillMount() {
         function S2N(arr) {
             arr.forEach(v => {
-                if(v.child && v.child.length > 0) {
+                if (v.child && v.child.length > 0) {
                     S2N(v.child)
                 };
                 v.id = String(v.id);
@@ -43,62 +46,28 @@ export default class extends React.Component {
         };
         this.props.setMenus(S2N(menus));
     }
-    toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        })
-    }
-
     componentWillReceiveProps = nextProps => {
         this.setState({
             menuOpenId: nextProps.menus[0].id
         });
     }
-    /**
-     * 递归渲染子菜单
-     * @param {any} menus.child 
-     * @returns 
-     */
-    renderSubMenus(arr) {
-        return arr.map((sub, index) => {
-            if (typeof sub.child !== undefined && sub.child.length > 0) {
-                 return (
-                    <Menu.SubMenu key={sub.id} title={sub.title}>
-                        {this.renderSubMenus(sub.child)}
-                    </Menu.SubMenu>
-                )
-            } else {
-                return (
-                    <MenuItem key={sub.id}>
-                         <Link to={sub.path}>{sub.title}</Link>
-                    </MenuItem>
-                )
-            }
-        })
-    }
     render() {
         return (
             <Router>
-                <div>
-                    <div className='leftWrap' style={{ width: 180 }}>
-                        <Button type='primary' style={{ marginBottom: 16 }} onClick={this.toggleCollapsed} >
-                            切换
-                        </Button>
-                        <Menu
-                            mode="inline"
-                            inlineCollapsed={this.state.collapsed}
-                            defaultSelectedKeys={['20']}
-                            defaultOpenKeys={['sb']}
-                        >
-                            {this.props.menus.map((menu, index) => (
-                                <Menu.SubMenu key={index === 0 ? 'sb' : menu.id} title={<span>{menu.title}</span>}>
-                                    {this.renderSubMenus(menu.child)}
-                                </Menu.SubMenu>
-                            ))}
-                        </Menu>
-                    </div>
+                <div className='wrap'>
+                    <Silde />
                     <div className='rightWrap'>
-                            123
+                        <Header /> 
+                        <div className='main'>
+                            <div className="innerWrap">
+                                <div className="inner2Wrap">
+                                    <Switch>
+                                        <Route exact path='/main' component={Main}/>
+                                        <Route component={Unkown}/>
+                                    </Switch>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Router>

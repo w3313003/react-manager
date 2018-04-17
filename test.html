@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .fix {
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            overflow: hidden;
+        }
+        .scroll {
+            width: 220px;
+            height: 100%;
+            overflow: scroll;
+        }
+        .inner {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='res' style='margin: auto'>
+        asdas123
+    </div>
+    <div class="fix">
+        <div class="scroll">
+            <div class="inner">
+                123212
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        document.querySelector('#res').onclick = function() {
+            document.querySelector('.inner').style.height = '40000px'
+        }
+    
+    </script>
+</html>
