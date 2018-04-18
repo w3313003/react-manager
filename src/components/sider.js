@@ -33,13 +33,13 @@ class Silde extends React.Component {
         return arr.map((sub, index) => {
             if (typeof sub.child !== undefined && sub.child.length > 0) {
                 return (
-                    <Menu.SubMenu key={sub.path} title={sub.title}>
+                    <Menu.SubMenu key={sub.id} title={sub.title}>
                         {this.renderSubMenus(sub.child)}
                     </Menu.SubMenu>
                 )
             } else {
                 return (
-                    <MenuItem key={sub.path} >
+                    <MenuItem key={sub.id} >
                         {sub.title}
                     </MenuItem>
                 )
@@ -63,7 +63,7 @@ class Silde extends React.Component {
                         }}
                     >
                         {this.props.menus.map((menu, index) => (
-                            <Menu.SubMenu key={menu.path} title={<span>{menu.title}</span>}>
+                            <Menu.SubMenu key={menu.id} title={<span>{menu.title}</span>}>
                                 {this.renderSubMenus(menu.child)}
                             </Menu.SubMenu>
                         ))}
@@ -74,4 +74,17 @@ class Silde extends React.Component {
     }
 }
 
-export default Silde
+export default Silde;
+
+var arr = 'abcdaabc';
+
+var info = arr
+    .split('')
+    .reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
+console.log(info);
+
+const a = true, b = false;
+function t() {
+   return a || b, 23;
+}
+console.log(t());

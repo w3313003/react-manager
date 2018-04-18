@@ -4,5 +4,10 @@ export default {
     [types.SET_CURRENT_MENUS]: payload => ({
         type: types.SET_CURRENT_MENUS,
         payload
+    }),
+    [types.SET_AUTH]: payload => ({
+        type: types.SET_AUTH,
+        payload
     })
-}
+};
+

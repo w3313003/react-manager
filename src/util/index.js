@@ -119,16 +119,16 @@ export default [
             parent_id: 11,
             id: 12,
             child: [
-                {
-                  icon: null,
-                  sort: 0,
-                  type: "menu",
-                  title: "测试",
-                  path: "/setting/action/test",
-                  parent_id: 12,
-                  id: 122,
-                  child: []
-                }
+              {
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "测试",
+                path: "/setting/action/test",
+                parent_id: 12,
+                id: 122,
+                child: []
+              }
             ]
           },
           {
