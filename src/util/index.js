@@ -1,4 +1,4 @@
-export default [
+var menus = [
   {
     icon: "icon-dashboard",
     sort: 0,
@@ -259,3 +259,10 @@ export default [
     ]
   }
 ];
+
+var path = window.location.hash.replace(/#/,'');
+
+
+function getDeepPathId(menus, path) {
+  
+}

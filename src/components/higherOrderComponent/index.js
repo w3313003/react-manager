@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function LoginHOC(Comp) {
+export function FormHOC(Comp) {
     return class extends React.Component {
         constructor(props) {
             super(props);

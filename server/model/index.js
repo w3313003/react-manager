@@ -1,5 +1,5 @@
 const mongo = require('mongoose');
-const DB_URL = 'mongodb://127.0.0.1:27017/userDB';
+const DB_URL = 'mongodb://127.0.0.1:27017/userMenusDB';
 mongo.connect(DB_URL);
 mongo.connection.on('connection', () => {
 	console.log('okkkkkkk');

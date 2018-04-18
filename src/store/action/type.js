@@ -1,4 +1,5 @@
 export default {
     SET_CURRENT_MENUS: 'SET_CURRENT_MENUS',
-    SET_AUTH: 'SET_AUTH'
+    SET_AUTH: 'SET_AUTH',
+    SET_OPENKEYS: 'SET_OPENKEYS'
 }

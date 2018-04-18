@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { Form, Icon, Input, Button, notification } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { LoginHOC } from '../components/higherOrderComponent/index'
+import { FormHOC } from '../components/higherOrderComponent/index'
 import axios from '../axios/index';
 import { connect } from 'react-redux';
 import action from '.././store/action';
@@ -35,7 +35,7 @@ class Login extends React.Component {
             (err, value) => {
                 if (!err) {
                     console.log(value)
-                    axios.post('http://192.168.1.146:8080/login', {
+                    axios.post('http://192.168.31.205:8080/login', {
                         username: value.username,
                         password: value.password
                     }).then(res => {
@@ -46,6 +46,7 @@ class Login extends React.Component {
                                 duration: 2
                             });
                             setTimeout(() => {
+                                this.props.history.replace('/main')
                                 sessionStorage.setItem('auth', true);
                                 sessionStorage.setItem('menus', JSON.stringify(res.data.data.menus));
                                 this.props.setMenus(res.data.data.menus);
@@ -107,4 +108,4 @@ class Login extends React.Component {
 
 const WrappedLoginForm = Form.create()(withRouter(Login));
 
-export default LoginHOC(WrappedLoginForm);
+export default FormHOC(WrappedLoginForm);

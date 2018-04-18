@@ -8,6 +8,10 @@ export default {
     [types.SET_AUTH]: payload => ({
         type: types.SET_AUTH,
         payload
+    }),
+    [types.SET_OPENKEYS]: payload => ({
+        type: types.SET_OPENKEYS,
+        payload
     })
 };
 

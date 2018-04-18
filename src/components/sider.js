@@ -75,16 +75,3 @@ class Silde extends React.Component {
 }
 
 export default Silde;
-
-var arr = 'abcdaabc';
-
-var info = arr
-    .split('')
-    .reduce((p, k) => (p[k]++ || (p[k] = 1), p), {});
-console.log(info);
-
-const a = true, b = false;
-function t() {
-   return a || b, 23;
-}
-console.log(t());
