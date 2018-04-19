@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import Silde from '../components/sider';
 import Header from '../components/header';
-
+import action from '../store/action';
 // 路由页面
 import Login from '../pages/login'
 import Main from '../pages/main';
@@ -15,16 +15,16 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         setMenus(arr) {
-//             dispatch(action.SET_CURRENT_MENUS(arr))
-//         }
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        setOpenKeys() {
+            dispatch(action.SET_OPENKEYS())
+        }
+    }
+}
 @connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )
 export default class extends React.Component {
     constructor(props) {
@@ -35,22 +35,11 @@ export default class extends React.Component {
         }
     }
     componentWillMount() {
-        // function S2N(arr) {
-        //     arr.forEach(v => {
-        //         if (v.child && v.child.length > 0) {
-        //             S2N(v.child)
-        //         };
-        //         v.id = String(v.id);
-        //     });
-        //     return arr
-        // };
-        // this.props.setMenus(S2N(menus));
+        this.props.setOpenKeys();
     }
-    // componentWillReceiveProps = nextProps => {
-    //     this.setState({
-    //         menuOpenId: nextProps.menus[0].id
-    //     });
-    // }
+    componentWillReceiveProps() {
+        this.props.setOpenKeys();
+    }
     render() {
         if(!this.props.auth) {
             return (
@@ -74,7 +63,13 @@ export default class extends React.Component {
                                     <Switch>
                                         <Route exact path='/' render={() => <Redirect to='/main'/>}/>
                                         <Route exact path='/main' component={Main}/>
-                                        <Route component={Unkown}/>
+                                        <Route exact path='/setting/action/test' render={() => (
+                                            <div>
+                                                123123
+                                            </div>
+                                        )} />
+                                        <Route path='/404' component={Unkown}/>
+                                        <Route render={() => <Redirect to='/404'/>}/>
                                     </Switch>
                                 </div>
                             </div>

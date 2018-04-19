@@ -144,293 +144,316 @@
 </body>
 <script>
     var menus = [{
+        icon: "icon-dashboard",
+        sort: 0,
+        type: "dropdown",
+        title: "首页",
+        path: "/main",
+        parent_id: 0,
+        id: 19,
+        child: [{
             icon: "icon-dashboard",
+            sort: -1,
+            type: "menu",
+            title: "平台信息",
+            path: "/main",
+            parent_id: 19,
+            id: 20,
+            child: []
+        },
+        {
+            icon: "icon-password",
+            sort: 2,
+            type: "dropdown",
+            title: "修改密码",
+            path: "/main/login",
+            parent_id: 19,
+            id: 21,
+            child: [{
+                icon: "",
+                sort: 3,
+                type: "menu",
+                title: "登录密码",
+                path: "/main/login",
+                parent_id: 21,
+                id: 22,
+                child: []
+            }]
+        }
+        ]
+    },
+    {
+        icon: "icon-choiceness",
+        sort: 1,
+        type: "dropdown",
+        title: "渠道管理",
+        path: "/channel/admin",
+        parent_id: 0,
+        id: 24,
+        child: [{
+            icon: "icon-pers",
+            sort: 0,
+            type: "menu",
+            title: "分管理员",
+            path: "/channel/admin",
+            parent_id: 24,
+            id: 25,
+            child: []
+        },
+        {
+            icon: "icon-pengyoufill",
+            sort: 1,
+            type: "menu",
+            title: "ODM服务商",
+            path: "/channel/ODM",
+            parent_id: 24,
+            id: 102,
+            child: []
+        },
+        {
+            icon: "icon-role",
+            sort: 2,
+            type: "menu",
+            title: "城市服务商",
+            path: "/channel/city",
+            parent_id: 24,
+            id: 26,
+            child: []
+        },
+        {
+            icon: "icon-member",
+            sort: 4,
+            type: "menu",
+            title: "普通商户",
+            path: "/channel/merchant",
+            parent_id: 24,
+            id: 28,
+            child: []
+        }
+        ]
+    },
+    {
+        icon: "icon-setting",
+        sort: 1,
+        type: "",
+        title: "系统配置",
+        path: "/setting",
+        parent_id: 0,
+        id: 1,
+        child: [{
+            icon: "icon-action",
             sort: 0,
             type: "dropdown",
-            title: "首页",
-            path: "/main",
-            parent_id: 0,
-            id: 19,
+            title: "操作管理",
+            path: "/setting/action",
+            parent_id: 1,
+            id: 11,
             child: [{
-                    icon: "icon-dashboard",
-                    sort: -1,
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "操作列表",
+                path: "/setting/action",
+                parent_id: 11,
+                id: 12,
+                child: [{
+                    icon: null,
+                    sort: 0,
                     type: "menu",
-                    title: "平台信息",
-                    path: "/main",
-                    parent_id: 19,
-                    id: 20,
-                    child: []
-                },
-                {
-                    icon: "icon-password",
-                    sort: 2,
-                    type: "dropdown",
-                    title: "修改密码",
-                    path: "/main/login",
-                    parent_id: 19,
-                    id: 21,
+                    title: "测试",
+                    path: "/setting/action/test",
+                    parent_id: 12,
+                    id: 122,
                     child: [{
-                        icon: "",
-                        sort: 3,
+                        icon: null,
+                        sort: 0,
                         type: "menu",
-                        title: "登录密码",
-                        path: "/main/login",
-                        parent_id: 21,
-                        id: 22,
+                        title: "测试32",
+                        path: "/setting/action/test/test2",
+                        parent_id: 122,
+                        id: 1224,
                         child: []
                     }]
-                }
+                }]
+            },
+            {
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "新增操作",
+                path: "/setting/action/add",
+                parent_id: 11,
+                id: 13,
+                child: []
+            }
             ]
         },
         {
-            icon: "icon-choiceness",
-            sort: 1,
+            icon: "icon-card",
+            sort: 0,
+            type: "menu",
+            title: "银行管理",
+            path: "/setting/bank",
+            parent_id: 1,
+            id: 49,
+            child: []
+        },
+        {
+            icon: "icon-menu",
+            sort: 0,
             type: "dropdown",
-            title: "渠道管理",
-            path: "/channel/admin",
-            parent_id: 0,
-            id: 24,
+            title: "菜单管理",
+            path: "/setting/menu",
+            parent_id: 1,
+            id: 2,
             child: [{
-                    icon: "icon-pers",
-                    sort: 0,
-                    type: "menu",
-                    title: "分管理员",
-                    path: "/channel/admin",
-                    parent_id: 24,
-                    id: 25,
-                    child: []
-                },
-                {
-                    icon: "icon-pengyoufill",
-                    sort: 1,
-                    type: "menu",
-                    title: "ODM服务商",
-                    path: "/channel/ODM",
-                    parent_id: 24,
-                    id: 102,
-                    child: []
-                },
-                {
-                    icon: "icon-role",
-                    sort: 2,
-                    type: "menu",
-                    title: "城市服务商",
-                    path: "/channel/city",
-                    parent_id: 24,
-                    id: 26,
-                    child: []
-                },
-                {
-                    icon: "icon-member",
-                    sort: 4,
-                    type: "menu",
-                    title: "普通商户",
-                    path: "/channel/merchant",
-                    parent_id: 24,
-                    id: 28,
-                    child: []
-                }
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "新增菜单",
+                path: "/setting/menu/add",
+                parent_id: 2,
+                id: 4,
+                child: []
+            },
+            {
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "菜单列表",
+                path: "/setting/menu",
+                parent_id: 2,
+                id: 3,
+                child: []
+            }
             ]
         },
         {
-            icon: "icon-setting",
-            sort: 1,
-            type: "",
-            title: "系统配置",
-            path: "/setting",
-            parent_id: 0,
-            id: 1,
+            icon: "icon-pers",
+            sort: 0,
+            type: "dropdown",
+            title: "权限管理",
+            path: "/setting/pers",
+            parent_id: 1,
+            id: 8,
             child: [{
-                    icon: "icon-action",
-                    sort: 0,
-                    type: "dropdown",
-                    title: "操作管理",
-                    path: "/setting/action",
-                    parent_id: 1,
-                    id: 11,
-                    child: [{
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "操作列表",
-                            path: "/setting/action",
-                            parent_id: 11,
-                            id: 12,
-                            child: [{
-                                icon: null,
-                                sort: 0,
-                                type: "menu",
-                                title: "测试",
-                                path: "/setting/action/test",
-                                parent_id: 12,
-                                id: 122,
-                                child: [{
-                                    icon: null,
-                                    sort: 0,
-                                    type: "menu",
-                                    title: "测试32",
-                                    path: "/setting/action/test/test2",
-                                    parent_id: 122,
-                                    id: 1224,
-                                    child: []
-                                }]
-                            }]
-                        },
-                        {
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "新增操作",
-                            path: "/setting/action/add",
-                            parent_id: 11,
-                            id: 13,
-                            child: []
-                        }
-                    ]
-                },
-                {
-                    icon: "icon-card",
-                    sort: 0,
-                    type: "menu",
-                    title: "银行管理",
-                    path: "/setting/bank",
-                    parent_id: 1,
-                    id: 49,
-                    child: []
-                },
-                {
-                    icon: "icon-menu",
-                    sort: 0,
-                    type: "dropdown",
-                    title: "菜单管理",
-                    path: "/setting/menu",
-                    parent_id: 1,
-                    id: 2,
-                    child: [{
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "新增菜单",
-                            path: "/setting/menu/add",
-                            parent_id: 2,
-                            id: 4,
-                            child: []
-                        },
-                        {
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "菜单列表",
-                            path: "/setting/menu",
-                            parent_id: 2,
-                            id: 3,
-                            child: []
-                        }
-                    ]
-                },
-                {
-                    icon: "icon-pers",
-                    sort: 0,
-                    type: "dropdown",
-                    title: "权限管理",
-                    path: "/setting/pers",
-                    parent_id: 1,
-                    id: 8,
-                    child: [{
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "新增权限",
-                            path: "/setting/pers/add",
-                            parent_id: 8,
-                            id: 10,
-                            child: []
-                        },
-                        {
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "权限列表",
-                            path: "/setting/pers",
-                            parent_id: 8,
-                            id: 9,
-                            child: []
-                        }
-                    ]
-                },
-                {
-                    icon: "icon-role",
-                    sort: 0,
-                    type: "dropdown",
-                    title: "角色管理",
-                    path: "/setting/role",
-                    parent_id: 1,
-                    id: 5,
-                    child: [{
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "新增角色",
-                            path: "/setting/role/add",
-                            parent_id: 5,
-                            id: 7,
-                            child: []
-                        },
-                        {
-                            icon: null,
-                            sort: 0,
-                            type: "menu",
-                            title: "角色列表",
-                            path: "/setting/role",
-                            parent_id: 5,
-                            id: 6,
-                            child: []
-                        }
-                    ]
-                },
-                {
-                    icon: "icon-role",
-                    sort: 10,
-                    type: "menu",
-                    title: "应用类型",
-                    path: "/setting/application/class",
-                    parent_id: 1,
-                    id: 144,
-                    child: []
-                }
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "新增权限",
+                path: "/setting/pers/add",
+                parent_id: 8,
+                id: 10,
+                child: []
+            },
+            {
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "权限列表",
+                path: "/setting/pers",
+                parent_id: 8,
+                id: 9,
+                child: []
+            }
             ]
+        },
+        {
+            icon: "icon-role",
+            sort: 0,
+            type: "dropdown",
+            title: "角色管理",
+            path: "/setting/role",
+            parent_id: 1,
+            id: 5,
+            child: [{
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "新增角色",
+                path: "/setting/role/add",
+                parent_id: 5,
+                id: 7,
+                child: []
+            },
+            {
+                icon: null,
+                sort: 0,
+                type: "menu",
+                title: "角色列表",
+                path: "/setting/role",
+                parent_id: 5,
+                id: 6,
+                child: []
+            }
+            ]
+        },
+        {
+            icon: "icon-role",
+            sort: 10,
+            type: "menu",
+            title: "应用类型",
+            path: "/setting/application/class",
+            parent_id: 1,
+            id: 144,
+            child: []
         }
+        ]
+    }
     ];
     console.log(menus);
     var path = "/setting/action/test/test2";
-    let arr = [],
+    let arr2 = [],
         selectKey = [],
-        i = 1;
-
+        i = 0;
+    let result = ''
     function getDeepPathId(menus, path) {
-        menus.forEach(item => {
-            let itemPath = item.path.match(/\w+((?=\/)|(?=\b))/g),
-                pathArr = path.match(/\w+((?=\/)|(?=\b))/g);
-            if (itemPath[i] === pathArr[i]) {
-                if(item.parent_id === 0) {
-                    return;
-                }
-                arr.push(item.id);
-                console.log(i)
-                i++;
+        if (!menus || !menus.length) return;
+        let stack = [],
+            item = null;
+        for (var i = 0, len = menus.length; i < len; i++) {
+            stack.push(menus[i]);
+        };
+        while (stack.length) {
+            item = stack.shift();
+            if (item.path === path) {
+                result = item.id
+            }
+            if (item.child && item.child.length) {
+                stack = stack.concat(item.child);
+            }
+        };
+        return result;
+    }
 
-                item.child.forEach(v => {
-                    if (v.path === path && v.child.length < 1) {
-                        selectKey.push(v.id);
-                    } else {
-                        getDeepPathId(v.child, path)
-                    }
-                })
+    function SearchId(menus, id) {
+        let arr = [];
+        function t(menus, id) {
+            if (!menus || !menus.length) return;
+            if (menus.some(v => v.id === id)) return;
+            let stack = [],
+                item = null;
+            for (var i = 0, len = menus.length; i < len; i++) {
+                stack.push(menus[i]);
             };
-        })
+            while (stack.length) {
+                item = stack.shift();
+                if (item.id === id) {
+                    arr.push(item.parent_id);
+                    if(item.parent_id !== 0) {
+                        t(menus, item.parent_id);
+                    }
+                }
+                if (item.child && item.child.length) {
+                    stack = stack.concat(item.child);
+                }
+            };
+        }
+        t(menus, id)
+        return arr;
     };
-    getDeepPathId(menus, path);
-    console.log(arr);
+    console.log(SearchId(menus, getDeepPathId(menus, path)));
+    console.log(getDeepPathId(menus, path));
     console.log(selectKey);
 </script>
 

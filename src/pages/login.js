@@ -35,7 +35,7 @@ class Login extends React.Component {
             (err, value) => {
                 if (!err) {
                     console.log(value)
-                    axios.post('http://192.168.31.205:8080/login', {
+                    axios.post('http://localhost:8080/login', {
                         username: value.username,
                         password: value.password
                     }).then(res => {
@@ -50,7 +50,7 @@ class Login extends React.Component {
                                 sessionStorage.setItem('auth', true);
                                 sessionStorage.setItem('menus', JSON.stringify(res.data.data.menus));
                                 this.props.setMenus(res.data.data.menus);
-                                this.props.setAuth(true)
+                                this.props.setAuth(true);
                             }, 1000);
                         };
                     });

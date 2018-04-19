@@ -39,8 +39,12 @@ class Silde extends React.Component {
                 )
             } else {
                 return (
-                    <MenuItem key={sub.id} >
-                        {sub.title}
+                    <MenuItem key={sub.id}>
+                        <div onClick={() => {
+                            this.props.history.push(sub.path)
+                        }}>
+                            {sub.title}
+                        </div>
                     </MenuItem>
                 )
             }
@@ -56,11 +60,8 @@ class Silde extends React.Component {
                     <Menu
                         mode="inline"
                         inlineCollapsed={this.state.collapsed}
-                        openKeys={this.props.openKey}
-                        selectedKeys={this.props.selectKey}
-                        onSelect={item => {
-                            this.props.history.push(item.key)
-                        }}
+                        defaultOpenKeys={this.props.openKey}
+                        defaultSelectedKeys={this.props.selectKey}
                     >
                         {this.props.menus.map((menu, index) => (
                             <Menu.SubMenu key={menu.id} title={<span>{menu.title}</span>}>
