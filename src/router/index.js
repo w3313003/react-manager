@@ -37,9 +37,6 @@ export default class extends React.Component {
     componentWillMount() {
         this.props.setOpenKeys();
     }
-    componentWillReceiveProps() {
-        this.props.setOpenKeys();
-    }
     render() {
         if(!this.props.auth) {
             return (

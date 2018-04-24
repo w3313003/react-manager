@@ -4,6 +4,7 @@ mongo.connect(DB_URL);
 mongo.connection.on('connection', () => {
 	console.log('okkkkkkk');
 })
+
 mongo.model('user', new mongo.Schema({
 	username: String,
 	password: String,

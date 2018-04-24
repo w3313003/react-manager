@@ -14,9 +14,6 @@ router.get('/', function (req, res, next) {
 });
 router.post('/img', (req, res) => {
 	if (!req.body) return res.sendStatus(400);  
-	console.log('Username: ' + req.body.username);  
-	console.log('Password: ' + req.body.password);
-	console.log(req.url);
     res.send('Welcome, ' + req.body.username);
 });
 router.post('/login', (req, res) => {
