@@ -73,6 +73,7 @@ class Login extends React.Component {
                                     validateTrigger: 'onBlur',
                                 })(
                                     <Input
+                                        autoComplete='off'
                                         prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                         placeholder="请输入用户名"
                                         onChange={e => this.props.handleChange('username', e.target.value)}
@@ -86,6 +87,7 @@ class Login extends React.Component {
                                     initialValue: this.props.password,
                                 })(
                                     <Input
+                                        autoComplete='off'
                                         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                         type="password"
                                         placeholder="Password"
