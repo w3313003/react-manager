@@ -1,10 +1,6 @@
-var menus = require('../public/javascripts/menus');
 var express = require('express');
 var router = express.Router();
 var Model = require('../model').model('user');
-var bodyParser = require('body-parser');
-var jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var multer = require('multer');
 
 var upload = multer({
@@ -33,12 +29,12 @@ router.post('/img', function (req, res, next) {
 	next();
 }, upload.single('files'), (req, res) => {
 	res.json({
-		code: '0000',
+		code: '0',
 		type: 'single',
+		msg: '上传成功',
 		originalname: req.file.originalname
 	})
 });
-router.get
 
 router.post('/login', (req, res) => {
 	const { username, password } = req.body;

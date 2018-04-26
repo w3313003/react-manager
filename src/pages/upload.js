@@ -1,5 +1,5 @@
 import React from 'react';
-import { Upload, message, Button, Icon, Slider } from 'antd';
+import { Upload, Button, Icon } from 'antd';
 
 export default class extends React.Component {
     render() {
@@ -10,10 +10,9 @@ export default class extends React.Component {
                 }}>
                     <Button>
                         <Icon type="upload" />
-                        Click to Upload
+                        点击上传
                     </Button>
                 </Upload>
-                <Slider vertical/>
             </div>
         )
     }
