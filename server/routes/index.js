@@ -2,20 +2,44 @@ var menus = require('../public/javascripts/menus');
 var express = require('express');
 var router = express.Router();
 var Model = require('../model').model('user');
-var bodyParser = require('body-parser');  
-var jsonParser = bodyParser.json()  
-var urlencodedParser = bodyParser.urlencoded({ extended: false })  
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var multer = require('multer');
 
+var upload = multer({
+	storage: multer.diskStorage({
+		destination: function (req, file, cb) {
+			cb(null, './uploads/');
+		},
+		filename: function (req, file, cb) {
+			//file.originalname上传文件的原始文件名
+			var changedName = (new Date().getTime()) + '-' + file.originalname;
+			cb(null, changedName);
+		}
+	})
+});
 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 	res.render('index', { title: 'Express' });
 });
-router.post('/img', (req, res) => {
-	if (!req.body) return res.sendStatus(400);  
-    res.send('Welcome, ' + req.body.username);
+
+
+
+router.post('/img', function (req, res, next) {
+	console.log(312312);
+	next();
+}, upload.single('files'), (req, res) => {
+	res.json({
+		code: '0000',
+		type: 'single',
+		originalname: req.file.originalname
+	})
 });
+router.get
+
 router.post('/login', (req, res) => {
 	const { username, password } = req.body;
 	// const Usermodels = new Model({
@@ -29,13 +53,13 @@ router.post('/login', (req, res) => {
 	// 	};
 	// });
 	Model.findOne({ username, password }, (err, doc) => {
-		if(err) {
+		if (err) {
 			res.send({
 				code: 1,
 				msg: err
 			})
-		}; 
-		if(doc) {
+		};
+		if (doc) {
 			res.send({
 				code: 0,
 				msg: '登陆成功',

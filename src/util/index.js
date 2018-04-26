@@ -9,9 +9,7 @@ class Api {
 			setTimeout(() => {
 				console.log(1)
 				return resolve(222)
-			}
-				,
-				200)
+			}, 200)
 		})
 	}
 	getFriends(userId) {
@@ -19,9 +17,7 @@ class Api {
 			setTimeout(() => {
 				console.log(userId)
 				return resolve(333)
-			}
-				,
-				3000)
+			}, 3000)
 		})
 	}
 	getPhoto(userId) {
@@ -29,9 +25,7 @@ class Api {
 			setTimeout(() => {
 				console.log(userId)
 				return resolve(this.user)
-			}
-				,
-				200)
+			}, 200)
 		})
 	}
 

@@ -7,8 +7,10 @@ import action from '../store/action';
 // 路由页面
 import Login from '../pages/login'
 import Main from '../pages/main';
-import Unkown from '../pages/unkown';
+import Area from '../pages/area';
+import Upload from '../pages/upload';
 
+import Unkown from '../pages/unkown';
 
 const mapStateToProps = state => ({
     menus: state.menus,
@@ -38,35 +40,38 @@ export default class extends React.Component {
         this.props.setOpenKeys();
     }
     render() {
-        if(!this.props.auth) {
+        if (!this.props.auth) {
             return (
                 <Router>
-                        <Switch>
-                            <Route exact path='/' render={() => <Redirect to='/login' />}/>
-                            <Route path='/login' component={Login}/>
-                        </Switch>
+                    <div>
+                        <Route path='/' render={() => <Redirect to='/login' />} />
+                        <Route path='/login' component={Login} />
+                    </div>
                 </Router>
             )
-        }
+        };
         return (
             <Router>
                 <div className='wrap'>
                     <Silde />
                     <div className='rightWrap'>
-                        <Header /> 
+                        <Header />
                         <div className='main'>
                             <div className="innerWrap">
                                 <div className="inner2Wrap">
                                     <Switch>
-                                        <Route exact path='/' render={() => <Redirect to='/main'/>}/>
-                                        <Route exact path='/main' component={Main}/>
+                                        <Route exact path='/' render={() => <Redirect to='/main' />} />
+                                        <Route exact path='/main' component={Main} />
                                         <Route exact path='/setting/action/test' render={() => (
                                             <div>
                                                 123123
                                             </div>
                                         )} />
-                                        <Route path='/404' component={Unkown}/>
-                                        <Route render={() => <Redirect to='/404'/>}/>
+                                        <Route path='/area' component={Area}/>
+                                        <Route path='/upload' component={Upload}/>
+                                        {/* 未命中路由 */}
+                                        <Route path='/404' component={Unkown} />
+                                        <Redirect to='/404' />
                                     </Switch>
                                 </div>
                             </div>
