@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import { connect } from 'react-redux';
+import Tab from './tabs'
 
 @connect(
     state => ({
@@ -20,6 +21,7 @@ class Header extends React.Component {
                         <Breadcrumb.Item><a href="">Application Center</a></Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
+                <Tab />
             </div>
         )
     }

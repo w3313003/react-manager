@@ -1,5 +1,5 @@
 import React from 'react';
-import { Upload, Button, Icon } from 'antd';
+import { Upload, Button, Icon, Rate } from 'antd';
 
 export default class extends React.Component {
     render() {
@@ -13,6 +13,7 @@ export default class extends React.Component {
                         点击上传
                     </Button>
                 </Upload>
+                <Rate character={<Icon type='lock' />} allowHalf/>
             </div>
         )
     }

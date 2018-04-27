@@ -64,3 +64,12 @@
 	box-sizing: border-box;
 	padding: 40px;
 }
+
+.tabWrap {
+	height: 30px;
+	overflow: hidden;
+}
+
+.ant-table-thead th {
+	text-align: center!important;
+}

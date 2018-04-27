@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Cascader, Modal, Button, Divider, Tree } from 'antd';
 import data from '../util/area'
 import { connect } from 'react-redux';
-
+import axios from '../axios/index';
 @connect(
     state => ({
         menus: state.menus
@@ -12,6 +12,14 @@ import { connect } from 'react-redux';
 export default class extends Component {
     state = {
         ModalShow: false
+    }
+    getData() {
+        axios.get('/').then(res => {
+
+        });
+    }
+    componentDidMount() {
+
     }
     render() {
         function renderTreeNode(tree) {

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Menu, Icon, Button } from 'antd';
-import MenuItem from 'antd/lib/menu/MenuItem';
-import { withRouter } from 'react-router-dom'
+import { Menu, Button } from 'antd';
+import { withRouter } from 'react-router-dom';
 @connect(
     state => ({
         menus: state.menus,
@@ -39,13 +38,13 @@ class Silde extends React.Component {
                 )
             } else {
                 return (
-                    <MenuItem key={sub.id}>
+                    <Menu.Item key={sub.id}>
                         <div onClick={() => {
                             this.props.history.push(sub.path)
                         }}>
                             {sub.title}
                         </div>
-                    </MenuItem>
+                    </Menu.Item>
                 )
             }
         })

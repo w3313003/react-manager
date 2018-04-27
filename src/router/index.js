@@ -1,9 +1,10 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import action from '../store/action';
+
 import Silde from '../components/sider';
 import Header from '../components/header';
-import action from '../store/action';
 // 路由页面
 import Login from '../pages/login'
 import Main from '../pages/main';

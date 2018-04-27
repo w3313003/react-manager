@@ -2,7 +2,7 @@
  * @Author: ZJ 
  * @Date: 2018-04-16 13:55:02 
  * @Last Modified by: ZJ
- * @Last Modified time: 2018-04-18 16:02:39
+ * @Last Modified time: 2018-04-27 17:42:18
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,9 +13,8 @@ import { createStore, applyMiddleware, compose} from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk'
-
-
 import reducer from './store/reducer/index';
+
 const reduxDevTools = window.devToolsExtension;
 
 const store = createStore(
