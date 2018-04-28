@@ -10,6 +10,8 @@ import Login from '../pages/login'
 import Main from '../pages/main';
 import Area from '../pages/area';
 import Upload from '../pages/upload';
+import Tfrom from '../pages/tform';
+
 
 import Unkown from '../pages/unkown';
 
@@ -70,6 +72,7 @@ export default class extends React.Component {
                                         )} />
                                         <Route path='/area' component={Area}/>
                                         <Route path='/upload' component={Upload}/>
+                                        <Route path='/channel/admin' component={Tfrom} />
                                         {/* 未命中路由 */}
                                         <Route path='/404' component={Unkown} />
                                         <Redirect to='/404' />
