@@ -13,8 +13,29 @@ class Tform extends Component {
     state = {
         username: '',
         password: '',
-        nickname: ''
+        nickname: '',
+        progress: 0
     };
+    componentDidMount() {
+        var arr = [5, 6, 3, 1, 8, 7, 2, 4];
+        function InsertSort(_arr) {
+            let arr = _arr.slice();
+            for(let i = 1, len = arr.length; i < len; i++ ) {
+                let index = i;
+                for(let j = i - 1; j >= 0; j --) {
+                    if(arr[index] < arr[j]) {
+                        
+                        [arr[index], arr[j]] = [arr[j], arr[index]];
+                        index = j;
+                    } else {
+                        break;
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(InsertSort(arr));
+    }
     render() {
         const formItemLayout = {
             labelCol: {
@@ -91,7 +112,8 @@ class Tform extends Component {
                             </Form.Item>
                             <Form.Item label='百分比' {...formItemLayout}>
                                 {this.props.form.getFieldDecorator('progress', {
-                                    rules: [{ required: true, message: '请选择地区' }]
+                                    rules: [{ required: true, message: '请选择地区' }],
+                                    initialValue: this.state.progress
                                 })(
                                     <Slider
                                         marks={{ 0: 'A', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }}
