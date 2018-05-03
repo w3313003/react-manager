@@ -53,6 +53,13 @@ class Login extends React.Component {
                                 this.props.setAuth(true);
                             }, 1000);
                         };
+                    }).catch(err => {
+                        console.log(err)
+                        notification.error({
+                            message: '请求失败',
+                            description: '检查网络',
+                            duration: 2
+                        })
                     });
                     return;
                 }
